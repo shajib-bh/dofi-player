@@ -304,6 +304,36 @@ h2{font-size:clamp(32px,5vw,52px);letter-spacing:-.03em;line-height:1.08;text-al
 .fix .arrow{text-align:center;color:var(--dim);font-size:13px}
 
 /* visual: screens */
+/* multi-screen visual: one scene cycling through the three modes */
+.rig{position:relative;display:flex;justify-content:center;align-items:flex-start;gap:6px;perspective:900px;padding:8px 0 30px}
+.mon{position:relative;flex:1;max-width:170px;display:flex;flex-direction:column;align-items:center}
+.mon.l{transform:rotateY(22deg);transform-origin:right center}
+.mon.r{transform:rotateY(-22deg);transform-origin:left center}
+.pan{position:relative;width:100%;aspect-ratio:16/10;border-radius:7px;overflow:hidden;background:#000;
+  box-shadow:0 0 0 3px #1c2230,0 0 0 4px rgba(255,255,255,.08),0 18px 40px rgba(0,0,0,.6)}
+.pan svg{position:absolute;inset:0;width:100%;height:100%;display:block}
+.pan::after{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.14),transparent 40%);pointer-events:none}
+.pan .mirror{opacity:0}
+.pan .dark{position:absolute;inset:0;background:#000;opacity:0}
+.neck{width:10%;height:16px;background:linear-gradient(#2a3140,#1a1f2b);margin-top:3px}
+.foot{width:44%;height:5px;border-radius:5px;background:#2a3140}
+.spill{position:absolute;left:12%;right:12%;bottom:6px;height:26px;border-radius:50%;background:radial-gradient(closest-side,rgba(249,115,22,.45),rgba(45,212,191,.15),transparent);filter:blur(8px);z-index:-1}
+.modes2{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:16px}
+.modes2 span{padding:6px 12px;border-radius:99px;border:1px solid var(--line);font-size:13px;color:var(--dim)}
+/* 12 s loop: span (0-33%) → mirror (33-66%) → black out (66-100%) */
+.pan .span{animation:mSpan 12s infinite}
+.pan .mirror{animation:mMirror 12s infinite}
+.mon.c .pan .mirror{animation:mMirrorC 12s infinite}
+.pan .dark{animation:mDark 12s infinite}
+.modes2 .m1{animation:c1 12s infinite}.modes2 .m2{animation:c2 12s infinite}.modes2 .m3{animation:c3 12s infinite}
+@keyframes mSpan{0%,30%{opacity:1}36%,96%{opacity:0}100%{opacity:1}}
+@keyframes mMirror{0%,30%{opacity:0}36%,63%{opacity:1}69%,100%{opacity:0}}
+@keyframes mMirrorC{0%,30%{opacity:0}36%,96%{opacity:1}100%{opacity:0}}
+@keyframes mDark{0%,63%{opacity:0}69%,96%{opacity:1}100%{opacity:0}}
+@keyframes c1{0%,30%{color:var(--text);border-color:rgba(45,212,191,.55);background:rgba(45,212,191,.12)}36%,96%{color:var(--dim);border-color:var(--line);background:transparent}100%{color:var(--text);border-color:rgba(45,212,191,.55);background:rgba(45,212,191,.12)}}
+@keyframes c2{0%,30%{color:var(--dim);border-color:var(--line);background:transparent}36%,63%{color:var(--text);border-color:rgba(45,212,191,.55);background:rgba(45,212,191,.12)}69%,100%{color:var(--dim);border-color:var(--line);background:transparent}}
+@keyframes c3{0%,63%{color:var(--dim);border-color:var(--line);background:transparent}69%,96%{color:var(--text);border-color:rgba(45,212,191,.55);background:rgba(45,212,191,.12)}100%{color:var(--dim);border-color:var(--line);background:transparent}}
+@media (prefers-reduced-motion:reduce){.pan .span,.pan .mirror,.mon.c .pan .mirror,.pan .dark,.modes2 span{animation:none}}
 .screens{display:flex;gap:10px;align-items:flex-end;width:100%;justify-content:center}
 .scr{flex:1;max-width:170px;aspect-ratio:16/10;border-radius:8px;border:3px solid #2a3140;position:relative;overflow:hidden;background:#000}
 .scr::after{content:"";position:absolute;left:42%;right:42%;bottom:-14px;height:10px;background:#2a3140}
@@ -491,11 +521,37 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
       </div>
       <div class="visual">
         <div style="width:100%">
-          <div class="screens" aria-hidden="true">
-            <div class="scr"><div class="img"></div></div>
-            <div class="scr"><div class="img"></div></div>
-            <div class="scr"><div class="img"></div></div>
+          <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+            <defs>
+              <linearGradient id="skyG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0b1026"/><stop offset=".55" stop-color="#3b1d4a"/><stop offset=".85" stop-color="#f97316"/><stop offset="1" stop-color="#fbbf24"/></linearGradient>
+              <radialGradient id="sunG"><stop offset="0" stop-color="#fff7d6"/><stop offset=".35" stop-color="#fcd34d"/><stop offset="1" stop-color="#f97316" stop-opacity="0"/></radialGradient>
+              <symbol id="scene" viewBox="0 0 480 100">
+                <rect width="480" height="100" fill="url(#skyG)"/>
+                <g fill="#fff" opacity=".7"><circle cx="30" cy="12" r=".7"/><circle cx="90" cy="22" r=".5"/><circle cx="140" cy="9" r=".6"/><circle cx="330" cy="14" r=".6"/><circle cx="400" cy="8" r=".7"/><circle cx="450" cy="24" r=".5"/><circle cx="210" cy="16" r=".4"/></g>
+                <circle cx="240" cy="78" r="46" fill="url(#sunG)"/>
+                <circle cx="240" cy="80" r="13" fill="#fff4cc"/>
+                <path d="M0 82 L40 66 L80 76 L130 58 L175 74 L215 64 L260 79 L300 60 L345 72 L390 56 L440 70 L480 62 L480 100 L0 100Z" fill="#2a1438"/>
+                <path d="M0 92 L60 80 L110 88 L170 78 L230 90 L290 80 L350 89 L410 79 L480 87 L480 100 L0 100Z" fill="#120a1f"/>
+                <path d="M0 97 L480 97 L480 100 L0 100Z" fill="#2dd4bf" opacity=".5"/>
+              </symbol>
+            </defs>
+          </svg>
+          <div class="rig" aria-hidden="true">
+            <div class="mon l"><div class="pan">
+              <svg class="span" viewBox="0 0 160 100" preserveAspectRatio="none"><use href="#scene" width="480" height="100"/></svg>
+              <svg class="mirror" viewBox="0 0 480 100" preserveAspectRatio="xMidYMid slice"><use href="#scene" width="480" height="100"/></svg>
+              <i class="dark"></i></div><b class="neck"></b><b class="foot"></b></div>
+            <div class="mon c"><div class="pan">
+              <svg class="span" viewBox="160 0 160 100" preserveAspectRatio="none"><use href="#scene" width="480" height="100"/></svg>
+              <svg class="mirror" viewBox="0 0 480 100" preserveAspectRatio="xMidYMid slice"><use href="#scene" width="480" height="100"/></svg>
+              </div><b class="neck"></b><b class="foot"></b></div>
+            <div class="mon r"><div class="pan">
+              <svg class="span" viewBox="320 0 160 100" preserveAspectRatio="none"><use href="#scene" width="480" height="100"/></svg>
+              <svg class="mirror" viewBox="0 0 480 100" preserveAspectRatio="xMidYMid slice"><use href="#scene" width="480" height="100"/></svg>
+              <i class="dark"></i></div><b class="neck"></b><b class="foot"></b></div>
+            <div class="spill"></div>
           </div>
+          <div class="modes2" aria-hidden="true"><span class="m1">One big screen</span><span class="m2">Show on all</span><span class="m3">Black out others</span></div>
         </div>
       </div>
     </div>
