@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dofi Player: free video player for Mac with built-in subtitle search</title>
+<meta name="description" content="Dofi Player is a free, fast video player for Mac. It plays MKV, MP4, AVI, 4K and more, finds subtitles online in one click, and supports Picture in Picture and multiple displays.">
+<meta name="keywords" content="Mac video player, free video player for Mac, MKV player Mac, subtitle downloader Mac, mpv player Mac, IINA alternative, VLC alternative Mac, Apple silicon video player, Dofi Player">
+<meta name="author" content="Shajib Bhuiyan">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://shajib3d.github.io/dofi-player/">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#090c12">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Dofi Player">
+<meta property="og:title" content="Dofi Player: the smooth video player for Mac">
+<meta property="og:description" content="Free Mac video player that plays everything and finds subtitles for you. Built natively for Apple silicon.">
+<meta property="og:url" content="https://shajib3d.github.io/dofi-player/">
+<meta property="og:image" content="https://shajib3d.github.io/dofi-player/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Dofi Player logo with the line: The smooth video player for Mac">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Dofi Player: the smooth video player for Mac">
+<meta name="twitter:description" content="Free Mac video player that plays everything and finds subtitles for you.">
+<meta name="twitter:image" content="https://shajib3d.github.io/dofi-player/og-image.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Dofi Player",
+  "alternateName": "Dofi",
+  "description": "A free, native video player for Mac with built-in online subtitle search, Picture in Picture, multi-display playback and Liquid Glass themes.",
+  "applicationCategory": "MultimediaApplication",
+  "applicationSubCategory": "Video player",
+  "operatingSystem": "macOS 14 Sonoma or later (Apple silicon)",
+  "url": "https://shajib3d.github.io/dofi-player/",
+  "downloadUrl": "https://github.com/shajib3d/dofi-player/releases/latest",
+  "image": "https://shajib3d.github.io/dofi-player/og-image.png",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "author": {
+    "@type": "Person",
+    "name": "Shajib Bhuiyan",
+    "jobTitle": "Landing page designer and developer",
+    "url": "https://www.linkedin.com/in/shaijb-bhuiyan/",
+    "sameAs": ["https://www.linkedin.com/in/shaijb-bhuiyan/", "https://github.com/shajib3d"]
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Is Dofi Player free?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Dofi Player is free to download and use, with no ads, no account and no tracking." } },
+    { "@type": "Question", "name": "Which Macs does Dofi Player run on?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Any Mac with Apple silicon (M1 or newer) running macOS 14 Sonoma or later. Intel Macs are not supported yet." } },
+    { "@type": "Question", "name": "Why does macOS say Apple could not verify Dofi Player?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Dofi Player is made by an independent developer and is not notarized by Apple. Open it once, click Done, then go to System Settings, Privacy & Security, and click Open Anyway. You only do this once; updates install without asking again." } },
+    { "@type": "Question", "name": "How do I download subtitles in Dofi Player?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Press Command F while a video is open. Dofi fills in the movie or show name for you, even from messy file names, searches OpenSubtitles and Podnapisi in the language you pick, and loads the subtitle you choose with one click." } },
+    { "@type": "Question", "name": "How is Dofi Player different from VLC or IINA?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Like IINA, Dofi is built on the mpv engine, so it plays almost any format. Dofi adds a built-in online subtitle search, styled subtitles you can fully customise, playback across several displays and a modern Liquid Glass look." } }
+  ]
+}
+</script>
+
+<style>
+:root{
+  --bg:#090c12; --bg2:#0f141d; --card:rgba(255,255,255,.045); --line:rgba(255,255,255,.09);
+  --text:#f2f4f8; --dim:#a7afbf; --accent:#2dd4bf; --accent2:#5ce8d6; --ink:#04211c;
+  --radius:18px; --max:1080px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font:17px/1.6 -apple-system,BlinkMacSystemFont,"SF Pro Text","Inter","Segoe UI",Roboto,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:var(--accent);text-decoration:none}
+a:hover{color:var(--accent2)}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
+.glow{position:absolute;inset:-200px auto auto 50%;width:900px;height:700px;transform:translateX(-50%);background:radial-gradient(closest-side,rgba(45,212,191,.22),transparent);pointer-events:none;z-index:0}
+
+/* nav */
+nav{position:sticky;top:0;z-index:10;backdrop-filter:saturate(160%) blur(18px);-webkit-backdrop-filter:saturate(160%) blur(18px);background:rgba(9,12,18,.72);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+.brand{display:flex;align-items:center;gap:10px;color:var(--text);font-weight:700;font-size:17px}
+.brand img{width:28px;height:28px;border-radius:7px}
+nav ul{display:flex;gap:26px;list-style:none;font-size:15px}
+nav ul a{color:var(--dim)} nav ul a:hover{color:var(--text)}
+@media (max-width:720px){nav ul{display:none}}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 26px;border-radius:12px;font-weight:700;font-size:16px;transition:transform .15s,box-shadow .15s}
+.btn-primary{background:var(--accent);color:var(--ink);box-shadow:0 8px 30px rgba(45,212,191,.35)}
+.btn-primary:hover{color:var(--ink);transform:translateY(-1px);box-shadow:0 12px 40px rgba(45,212,191,.45)}
+.btn-ghost{border:1px solid var(--line);color:var(--text);background:var(--card)}
+.btn-ghost:hover{color:var(--text);border-color:rgba(255,255,255,.2)}
+.btn-sm{padding:9px 16px;font-size:14px;border-radius:10px}
+
+/* hero */
+header.hero{position:relative;overflow:hidden;text-align:center;padding:96px 0 72px}
+header.hero>.wrap{position:relative;z-index:1}
+.hero .icon{width:128px;height:128px;border-radius:30px;box-shadow:0 20px 60px rgba(45,212,191,.28)}
+.eyebrow{display:inline-block;margin:28px 0 14px;padding:6px 14px;border:1px solid var(--line);border-radius:99px;color:var(--dim);font-size:14px;background:var(--card)}
+h1{font-size:clamp(40px,7vw,68px);line-height:1.05;letter-spacing:-.025em;font-weight:800}
+h1 span{color:var(--accent)}
+.lede{max-width:640px;margin:20px auto 34px;color:var(--dim);font-size:clamp(17px,2.2vw,20px)}
+.cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.req{margin-top:18px;color:var(--dim);font-size:14px}
+
+/* sections */
+section{padding:72px 0;border-top:1px solid var(--line)}
+h2{font-size:clamp(28px,4vw,40px);letter-spacing:-.02em;line-height:1.15;margin-bottom:12px;text-align:center}
+.sub{color:var(--dim);text-align:center;max-width:620px;margin:0 auto 44px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px}
+.card h3{font-size:18px;margin-bottom:8px;display:flex;align-items:center;gap:10px}
+.card p{color:var(--dim);font-size:15.5px}
+.card .ico{width:34px;height:34px;border-radius:10px;background:rgba(45,212,191,.12);display:grid;place-items:center;flex:none}
+.card .ico svg{width:18px;height:18px;stroke:var(--accent);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.card.big{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center}
+@media (max-width:720px){.card.big{grid-template-columns:1fr}}
+.kbd{display:inline-block;padding:1px 7px;border:1px solid var(--line);border-bottom-width:2px;border-radius:6px;font:600 13px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--text);background:rgba(255,255,255,.05)}
+.mock{background:linear-gradient(160deg,#1b2433,#0c1018);border:1px solid var(--line);border-radius:14px;padding:18px}
+.mock .row{display:flex;justify-content:space-between;align-items:center;padding:10px 12px;border-radius:9px;font-size:14px;color:var(--dim)}
+.mock .row.on{background:rgba(45,212,191,.12);color:var(--text)}
+.mock .row b{color:var(--accent);font-weight:600;font-size:12.5px}
+.mock .q{padding:10px 12px;border:1px solid var(--line);border-radius:9px;margin-bottom:10px;font-size:14px}
+.formats{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:30px}
+.formats span{padding:6px 12px;border:1px solid var(--line);border-radius:99px;font-size:13.5px;color:var(--dim);background:var(--card)}
+
+/* steps */
+ol.steps{list-style:none;counter-reset:s;display:grid;gap:14px;max-width:720px;margin:0 auto}
+ol.steps li{counter-increment:s;position:relative;padding:18px 20px 18px 64px;background:var(--card);border:1px solid var(--line);border-radius:14px;color:var(--dim)}
+ol.steps li strong{color:var(--text)}
+ol.steps li::before{content:counter(s);position:absolute;left:18px;top:16px;width:30px;height:30px;border-radius:50%;background:var(--accent);color:var(--ink);font-weight:800;display:grid;place-items:center;font-size:15px}
+
+/* faq */
+.faq{max-width:760px;margin:0 auto;display:grid;gap:12px}
+details{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 22px}
+summary{cursor:pointer;font-weight:650;list-style:none;display:flex;justify-content:space-between;gap:16px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--accent);font-size:22px;line-height:1}
+details[open] summary::after{content:"\2212"}
+details p{color:var(--dim);margin-top:10px;font-size:15.5px}
+
+/* final cta + footer */
+.final{text-align:center}
+footer{border-top:1px solid var(--line);padding:34px 0 46px;color:var(--dim);font-size:14.5px}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.maker{color:var(--accent);font-weight:700;text-decoration:underline;text-underline-offset:3px}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="#top"><img src="favicon-32.png" alt="" width="28" height="28">Dofi Player</a>
+    <ul>
+      <li><a href="#features">Features</a></li>
+      <li><a href="#subtitles">Subtitles</a></li>
+      <li><a href="#install">Install</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <a class="btn btn-primary btn-sm" href="https://github.com/shajib3d/dofi-player/releases/latest">Download</a>
+  </div>
+</nav>
+
+<main id="top">
+<header class="hero">
+  <div class="glow" aria-hidden="true"></div>
+  <div class="wrap">
+    <img class="icon" src="apple-touch-icon.png" alt="Dofi Player app icon" width="128" height="128">
+    <div><span class="eyebrow">Free video player for Mac · Apple silicon</span></div>
+    <h1>The smooth video player<br><span>for your Mac</span></h1>
+    <p class="lede">Dofi Player plays almost any video you throw at it, finds the right subtitles for you in one click, and looks right at home on macOS.</p>
+    <div class="cta">
+      <a class="btn btn-primary" href="https://github.com/shajib3d/dofi-player/releases/latest">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0l-5-5m5 5l5-5M5 21h14"/></svg>
+        Download for Mac
+      </a>
+      <a class="btn btn-ghost" href="#features">See what it does</a>
+    </div>
+    <p class="req">Free · macOS 14 Sonoma or later · M1, M2, M3, M4 and newer</p>
+  </div>
+</header>
+
+<section id="features">
+  <div class="wrap">
+    <h2>Everything you want from a Mac video player</h2>
+    <p class="sub">Built natively in Swift on the mpv engine, so it opens instantly, stays light on your battery, and handles the files other players choke on.</p>
+    <div class="grid">
+      <article class="card">
+        <h3><span class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M10 9l5 3-5 3z"/></svg></span>Plays everything</h3>
+        <p>MKV, MP4, MOV, AVI, WebM, WMV and more, including 4K and HEVC (H.265), with hardware decoding on Apple silicon. Music files show their cover art.</p>
+      </article>
+      <article class="card">
+        <h3><span class="ico"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></span>Subtitles found for you</h3>
+        <p>Press <span class="kbd">⌘F</span> and Dofi searches OpenSubtitles and Podnapisi for the movie or episode you are watching, in your language.</p>
+      </article>
+      <article class="card">
+        <h3><span class="ico"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h10M4 17h7"/></svg></span>Subtitles your way</h3>
+        <p>Pick the font, size, colour, outline and background, show two subtitle tracks at once, and fix timing with a quick delay control.</p>
+      </article>
+      <article class="card">
+        <h3><span class="ico"><svg viewBox="0 0 24 24"><path d="M10 14a4 4 0 005.7 0l3-3a4 4 0 00-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 00-5.7 0l-3 3a4 4 0 005.7 5.7l1-1"/></svg></span>YouTube and web links</h3>
+        <p>Paste a link with <span class="kbd">⌘U</span> and watch YouTube and other sites in the player, then grab a screenshot or save a short clip.</p>
+      </article>
+      <article class="card">
+        <h3><span class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="14" rx="2"/><rect x="12" y="11" width="7" height="5" rx="1"/></svg></span>Picture in Picture</h3>
+        <p>Pop the video into a floating window and keep watching while you work in other apps.</p>
+      </article>
+      <article class="card">
+        <h3><span class="ico"><svg viewBox="0 0 24 24"><rect x="2" y="5" width="9" height="7" rx="1.5"/><rect x="13" y="5" width="9" height="7" rx="1.5"/><path d="M6.5 16v3M17.5 16v3M4 19h5M15 19h5"/></svg></span>Made for multiple screens</h3>
+        <p>Show the same video on every connected display, black out the others for a cinema feel, or move playback to another screen in one click.</p>
+      </article>
+      <article class="card">
+        <h3><span class="ico"><svg viewBox="0 0 24 24"><path d="M12 3l2.5 5 5.5.8-4 3.9.9 5.5L12 15.6 7.1 18.2l.9-5.5-4-3.9 5.5-.8z"/></svg></span>Liquid Glass themes</h3>
+        <p>Ten themes from classic dark to clear glass, designed for the new macOS look, so the controls float over your video without getting in the way.</p>
+      </article>
+      <article class="card">
+        <h3><span class="ico"><svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 1015.5-6.3"/><path d="M21 3v6h-6"/></svg></span>Picks up where you left off</h3>
+        <p>Dofi remembers your place in every file, keeps a playlist, and opens as many windows as you need.</p>
+      </article>
+      <article class="card">
+        <h3><span class="ico"><svg viewBox="0 0 24 24"><path d="M12 3v12m0 0l-4-4m4 4l4-4"/><path d="M4 17v2a2 2 0 002 2h12a2 2 0 002-2v-2"/></svg></span>One-click updates</h3>
+        <p>When a new version is out, Dofi tells you and installs it with a single click. No reinstalling, no hunting for downloads.</p>
+      </article>
+    </div>
+    <div class="formats" aria-label="Supported formats">
+      <span>MKV</span><span>MP4</span><span>MOV</span><span>AVI</span><span>WebM</span><span>WMV</span><span>M4V</span><span>HEVC / H.265</span><span>4K</span><span>SRT</span><span>ASS</span><span>VTT</span><span>MP3</span><span>FLAC</span>
+    </div>
+  </div>
+</section>
+
+<section id="subtitles">
+  <div class="wrap">
+    <h2>The easiest way to get subtitles on a Mac</h2>
+    <p class="sub">No more searching subtitle sites, unzipping files and dragging them in. Dofi does the whole job inside the player.</p>
+    <div class="grid">
+      <article class="card big">
+        <div>
+          <h3>Messy file names? No problem.</h3>
+          <p>Files like <em>The.Dark.Nite.2008.1080p.BluRay.x264</em> are cleaned up automatically, and typos are corrected, so the search finds the real title. TV episodes are matched by show, season and episode.</p>
+          <p style="margin-top:12px">Results are ranked so the best match for your exact file comes first, and the subtitle loads the moment you click it.</p>
+        </div>
+        <div class="mock" aria-hidden="true">
+          <div class="q">The Dark Knight (2008) · English</div>
+          <div class="row on">The.Dark.Knight.2008.1080p.BluRay <b>Best match</b></div>
+          <div class="row">The.Dark.Knight.2008.720p.WEB <b>Good</b></div>
+          <div class="row">The.Dark.Knight.2008.DVDRip <b>Good</b></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="install">
+  <div class="wrap">
+    <h2>Install in a minute</h2>
+    <p class="sub">Dofi is made by an independent developer and isn't notarized by Apple, so macOS asks you to confirm once. Here is exactly what to do.</p>
+    <ol class="steps">
+      <li><strong>Download</strong> the latest <code>.dmg</code> from the <a href="https://github.com/shajib3d/dofi-player/releases/latest">releases page</a> and open it.</li>
+      <li><strong>Drag Dofi Player into Applications</strong> in the window that opens.</li>
+      <li><strong>Open Dofi Player.</strong> macOS says it could not verify the app. Click <strong>Done</strong> (not Move to Trash).</li>
+      <li><strong>Open System Settings → Privacy &amp; Security</strong>, scroll down, click <strong>Open Anyway</strong> next to Dofi Player and confirm with your password.</li>
+      <li><strong>That's it.</strong> You only do this once. Future updates install with one click and open straight away.</li>
+    </ol>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <h2>Questions</h2>
+    <p class="sub">Short answers to what people ask most.</p>
+    <div class="faq">
+      <details><summary>Is Dofi Player free?</summary><p>Yes. It's free to download and use, with no ads, no account and no tracking. Dofi only goes online to check for updates, search subtitles you ask for, and play links you paste.</p></details>
+      <details><summary>Which Macs does it run on?</summary><p>Any Mac with Apple silicon (M1 or newer) running macOS 14 Sonoma or later. Intel Macs are not supported yet.</p></details>
+      <details><summary>Why does macOS say "Apple could not verify" Dofi Player?</summary><p>Apple shows this for apps that aren't notarized through its paid developer program. Follow the install steps above: click Done, then Open Anyway in Privacy &amp; Security. You only need to do it once.</p></details>
+      <details><summary>How do I download subtitles?</summary><p>Open a video and press <span class="kbd">⌘F</span>. Dofi fills in the title for you, you pick a language, and one click loads the subtitle. You can also drop your own SRT, ASS or VTT file onto the window.</p></details>
+      <details><summary>How is it different from VLC or IINA?</summary><p>Like IINA, Dofi is built on the mpv engine, so it plays almost any format. Dofi adds a built-in online subtitle search, fully styled subtitles, playback across several displays and a modern Liquid Glass look.</p></details>
+      <details><summary>How do updates work?</summary><p>Dofi checks for a new version once a day. When one is out, click Install &amp; Restart and you're on the latest version a few seconds later.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="wrap">
+    <h2>Ready for a better movie night?</h2>
+    <p class="sub">Download Dofi Player for free and open your first video in seconds.</p>
+    <a class="btn btn-primary" href="https://github.com/shajib3d/dofi-player/releases/latest">Download for Mac</a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Dofi Player, designed &amp; built by <a class="maker" href="https://www.linkedin.com/in/shaijb-bhuiyan/" rel="author">Shajib Bhuiyan</a></p>
+    <p>Powered by <a href="https://mpv.io/">mpv</a> and <a href="https://ffmpeg.org/">FFmpeg</a> · <a href="https://github.com/shajib3d/dofi-player">GitHub</a></p>
+  </div>
+</footer>
+</body>
+</html>
