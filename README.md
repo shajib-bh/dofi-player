@@ -6,8 +6,8 @@
 <p align="center"><b>The smooth, free video player for Mac, with built-in subtitle search.</b></p>
 
 <p align="center">
-  <a href="https://github.com/shajib3d/dofi-player/releases/latest"><b>Download for Mac</b></a> ·
-  <a href="https://shajib3d.github.io/dofi-player/">Website</a>
+  <a href="https://github.com/shajib-bh/dofi-player/releases/latest"><b>Download for Mac</b></a> ·
+  <a href="https://shajib-bh.github.io/dofi-player/">Website</a>
 </p>
 
 Dofi Player is a native macOS video player built in Swift on the mpv engine. It plays almost any video format, finds subtitles online in one click, and is designed for Apple silicon and the new Liquid Glass look of macOS.
@@ -31,7 +31,7 @@ Dofi Player is a native macOS video player built in Swift on the mpv engine. It 
 
 ## Install
 
-1. Download the latest `.dmg` from [Releases](https://github.com/shajib3d/dofi-player/releases/latest) and open it.
+1. Download the latest `.dmg` from [Releases](https://github.com/shajib-bh/dofi-player/releases/latest) and open it.
 2. Drag **Dofi Player** into **Applications**.
 3. Open it. macOS says it could not verify the app: click **Done** (not Move to Trash).
 4. Go to **System Settings → Privacy & Security**, scroll down and click **Open Anyway**.
