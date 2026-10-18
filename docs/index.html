@@ -273,6 +273,16 @@ h1 em{font-style:normal;background:linear-gradient(90deg,#2dd4bf,#7dd3fc);-webki
 .feature .visual{min-height:260px}
 .install ol.steps{grid-template-columns:repeat(3,1fr);max-width:900px;margin-left:auto;margin-right:auto}
 @media (max-width:760px){.install ol.steps{grid-template-columns:1fr}}
+/* 19 Oct: the four real macOS first-open screens (setup-1..4.png, made by Website/tools/web-setup-steps.swift) */
+.setup-lead{max-width:720px;margin:18px auto 0;text-align:center;color:var(--dim);font-size:16px}
+.setup-lead strong{color:var(--text)}
+/* four in one row on wide screens; the Privacy & Security card is wider because its picture is */
+.install ol.steps.setup{grid-template-columns:1fr 1.55fr 1fr 1fr;max-width:none;margin-top:26px}
+ol.steps.setup li{display:flex;flex-direction:column;padding:18px}
+ol.steps.setup li img{display:block;width:100%;max-width:268px;height:auto;margin:16px auto 0}
+ol.steps.setup li img.wide{max-width:510px;margin:auto 0}
+@media (max-width:1060px){.install ol.steps.setup{grid-template-columns:1fr 1fr;max-width:760px}ol.steps.setup li img.wide{margin-top:16px}}
+@media (max-width:560px){.install ol.steps.setup{grid-template-columns:1fr}}
 .faqsec{padding-top:0}
 .final h2{margin-bottom:6px}
 
@@ -922,12 +932,14 @@ details[open] summary::after{transform:rotate(180deg)}
 <section id="install" class="install">
   <div class="wrap">
     <h2>Ready in a minute.</h2>
-    <ol class="steps">
-      <li><strong>Download</strong>and drag Dofi to Applications.</li>
-      <li><strong>Open it</strong>macOS asks once. Click Done, not Move to Trash.</li>
-      <li><strong>Open Anyway</strong>in System Settings → Privacy &amp; Security, then once more, and confirm with Touch ID or your password.</li>
+    <p class="setup-lead"><strong>Download</strong>, open it and drag Dofi to Applications. Then, the first time only:</p>
+    <ol class="steps setup">
+      <li><strong>Open it</strong>macOS says it can't check Dofi. Click Done, not Move to Trash.<img src="setup-1.png" width="268" height="258" alt="The macOS message “Dofi Player.app” Not Opened, with the Done button marked" loading="lazy" decoding="async"></li>
+      <li><strong>Open Anyway</strong>In System Settings › Privacy &amp; Security, scroll down and click Open Anyway.<img class="wide" src="setup-2.png" width="510" height="122" alt="System Settings, Privacy and Security: “Dofi Player.app” was blocked to protect your Mac, with the Open Anyway button marked" loading="lazy" decoding="async"></li>
+      <li><strong>Once more</strong>macOS asks again. Click Open Anyway.<img src="setup-3.png" width="268" height="324" alt="The macOS message Open “Dofi Player.app”?, with the Open Anyway button marked" loading="lazy" decoding="async"></li>
+      <li><strong>Confirm</strong>Use Touch ID or your Mac password. Dofi opens, and from now on it opens normally.<img src="setup-4.png" width="268" height="329" alt="The macOS Touch ID request, with the fingerprint marked" loading="lazy" decoding="async"></li>
     </ol>
-    <p class="why">The picture “View this image to set up” in the download shows every screen. Why? Dofi is free and indie, so it skips Apple's $99/year notarization. After that, updates install with one click.</p>
+    <p class="why">Why? Dofi is free and indie, so it skips Apple's $99/year notarization. You do this once; after that, updates install with one click. These are the macOS 27 screens: on older versions the wording differs a little, but the steps are the same.</p>
   </div>
 </section>
 
