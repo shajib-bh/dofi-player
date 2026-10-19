@@ -273,7 +273,7 @@ h1 em{font-style:normal;background:linear-gradient(90deg,#2dd4bf,#7dd3fc);-webki
 .feature .visual{min-height:260px}
 .install ol.steps{grid-template-columns:repeat(3,1fr);max-width:900px;margin-left:auto;margin-right:auto}
 @media (max-width:760px){.install ol.steps{grid-template-columns:1fr}}
-/* 19 Oct: the four real macOS first-open screens (setup-1..4.png, made by Website/tools/web-setup-steps.swift) */
+/* 19 Oct: the four real macOS first-open screens (setup-1..4.png, made by Website/tools/web-setup-steps.swift; sharp 2x photos since 19 Oct night) */
 .setup-lead{max-width:720px;margin:18px auto 0;text-align:center;color:var(--dim);font-size:16px}
 .setup-lead strong{color:var(--text)}
 .install ol.steps.setup{grid-template-columns:repeat(2,1fr);margin-top:26px}
@@ -726,7 +726,7 @@ details[open] summary::after{transform:rotate(180deg)}
         <div class="hint">Click once. It's loaded.</div>
         <svg class="cursor" width="18" height="22" viewBox="0 0 18 22" aria-hidden="true"><path d="M1 1l15 9.5-6.6 1.4L13 20l-3 1.4-3.6-8.2L1 17z" fill="#fff" stroke="#000" stroke-width="1.2" stroke-linejoin="round"/></svg>
       </div>
-      <div class="tag t1"><b>0.86 s</b> to the first picture<a href="#speed" style="color:var(--dim)">*</a></div>
+      <div class="tag t1"><b>1.6×</b> faster to play than IINA<a href="#speed" style="color:var(--dim)">*</a></div>
       <div class="tag t2"><b>4K · HEVC · MKV</b> hardware decoded</div>
     </div>
   </div>
@@ -888,7 +888,7 @@ details[open] summary::after{transform:rotate(180deg)}
 <div class="speed" id="speed">
   <div class="wrap">
     <div class="stats">
-      <div><b>0.86s</b><span>to the first picture (IINA: 1.39 s)</span></div>
+      <div><b>38%</b><span>less waiting for the first picture than IINA (0.86 s vs 1.39 s)</span></div>
       <div><b>&lt;¼</b><span>of one CPU core for 4K HEVC</span></div>
       <div><b>$0</b><span>every feature, nothing locked</span></div>
     </div>
@@ -932,10 +932,10 @@ details[open] summary::after{transform:rotate(180deg)}
     <h2>Ready in a minute.</h2>
     <p class="setup-lead"><strong>Download</strong>, open it and drag Dofi to Applications. Then, the first time only:</p>
     <ol class="steps setup">
-      <li><strong>Open it</strong>macOS says it can't check Dofi. Click Done, not Move to Trash.<img src="setup-1.png" width="372" height="362" alt="The macOS message “Dofi Player.app” Not Opened, with the Done button marked" loading="lazy" decoding="async"></li>
-      <li><strong>Open Anyway</strong>In System Settings › Privacy &amp; Security, scroll down and click Open Anyway.<img class="wide" src="setup-2.png" width="510" height="210" alt="System Settings, Privacy and Security: “Dofi Player.app” was blocked to protect your Mac, with the Open Anyway button marked" loading="lazy" decoding="async"></li>
-      <li><strong>Once more</strong>macOS asks again. Click Open Anyway.<img src="setup-3.png" width="372" height="428" alt="The macOS message Open “Dofi Player.app”?, with the Open Anyway button marked" loading="lazy" decoding="async"></li>
-      <li><strong>Confirm</strong>Use Touch ID or your Mac password. Dofi opens, and from now on it opens normally.<img src="setup-4.png" width="372" height="433" alt="The macOS Touch ID request, with the fingerprint marked" loading="lazy" decoding="async"></li>
+      <li><strong>Open it</strong>macOS says it can't check Dofi. Click Done, not Move to Trash.<img src="setup-1.png" width="308" height="332" alt="The macOS message “Dofi Player.app” Not Opened, with the Done button marked" loading="lazy" decoding="async"></li>
+      <li><strong>Open Anyway</strong>In System Settings › Privacy &amp; Security, scroll down and click Open Anyway.<img class="wide" src="setup-2.png" width="528" height="220" alt="System Settings, Privacy and Security: “Dofi Player.app” was blocked to protect your Mac, with the Open Anyway button marked" loading="lazy" decoding="async"></li>
+      <li><strong>Once more</strong>macOS asks again. Click Open Anyway, not Move to Trash.<img src="setup-3.png" width="308" height="398" alt="The macOS message Open “Dofi Player.app”?, with the Open Anyway button marked" loading="lazy" decoding="async"></li>
+      <li><strong>Confirm</strong>Use Touch ID or your Mac password. Dofi opens, and from now on it opens normally.<img src="setup-4.png" width="308" height="369" alt="The macOS Touch ID request, with the fingerprint marked" loading="lazy" decoding="async"></li>
     </ol>
     <p class="why">Why? Dofi is free and indie, so it skips Apple's $99/year notarization. You do this once; after that, updates install with one click. These are the macOS 27 screens: on older versions the wording differs a little, but the steps are the same.</p>
   </div>
@@ -979,7 +979,7 @@ details[open] summary::after{transform:rotate(180deg)}
     <p>Three quick steps and you're watching.</p>
     <ol>
       <li><span>Open the <b>Dofi-Player</b> file in your Downloads and drag Dofi into <b>Applications</b>.</span></li>
-      <li><span>Open Dofi. macOS asks first: click <b>Done</b> (not Move to Trash). The picture <b>View this image to set up</b> in the same window shows every step.</span></li>
+      <li><span>Open Dofi. macOS asks first: click <b>Done</b> (not Move to Trash). The picture <b>View the setup guide</b> in the same window shows every step.</span></li>
       <li><span>Go to <b>System Settings → Privacy &amp; Security</b>, click <b>Open Anyway</b>, then <b>Open Anyway</b> once more and confirm with Touch ID or your password. Only this once.</span></li>
     </ol>
     <div class="modal-links">

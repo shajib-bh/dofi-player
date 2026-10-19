@@ -47,7 +47,7 @@ Checked 18 October 2026 from each player's own site, release notes or source. "â
 
 1. Download the latest `.dmg` from [Releases](https://github.com/shajib-bh/dofi-player/releases/latest) and open it.
 2. Drag **Dofi Player** into **Applications**.
-3. Open the picture **View this image to set up** in the same window. It shows the one-time steps with the real macOS screens:
+3. Open the picture **View the setup guide** in the same window. It shows the one-time steps with the real macOS screens:
    - Open Dofi Player. macOS says it was not opened: click **Done** (not Move to Trash).
    - Go to **System Settings â†’ Privacy & Security**, scroll down and click **Open Anyway**.
    - Click **Open Anyway** once more, then confirm with Touch ID or your password.
